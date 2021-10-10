@@ -1,0 +1,172 @@
+<html>
+<title>Caixa Eletronico </title>
+<head>
+
+	<script>
+		var saldo = 550.50; 
+		var nome = prompt("Por favor insira seu nome");
+		alert ("Olá " + nome + " é um prazer ter você por aqui!");
+
+		function comeco() {
+		
+			var escolha = parseInt(prompt(`Selecione uma opção:
+1 ) Saldo
+2 ) Transferencia
+3 ) Saque
+4 ) Depósito 
+5 ) Extrato 
+6 ) Sair
+7 ) Concelho`));
+
+			switch(escolha) {
+    			case 1:
+    			ver_saldo();
+				break;
+			}
+			switch(escolha) {
+    			case 2:
+    			transferência();
+				break;
+			}
+			switch(escolha) {
+    			case 3:
+    			fazer_saque();
+				break;
+			}
+			switch(escolha) {
+    			case 4:
+    			fazer_deposito();
+				break;
+			}
+			switch(escolha) {
+    			case 5:
+    			ver_extrato();
+				break;
+			}
+			switch(escolha) {
+    			case 6:
+    			sair();
+				break;
+            }
+
+            switch(escolha) {
+                case 7:
+                concelho_1();
+                 break;
+            
+				default: 
+    			erro();
+                }
+		}		
+		
+			
+
+		function ver_saldo() {
+			alert('Seu saldo é de :' + saldo );
+            alert('SLC hein fi ta chei da grana');
+			comeco();
+		}
+
+		function fazer_deposito() {
+			var deposito = parseFloat(prompt("Qual o valor para depósito?"));
+			// caso näo seja um número
+			if (isNaN(deposito) || deposito === '') {
+				alert("Por favor informe um número:");
+				fazer_deposito();
+			} 
+			else if (deposito <= 0){
+				alert("VISH! foi nao tenta dnv faz u favor");
+				fazer_deposito();
+			}
+			else {
+				saldo += deposito;
+				ver_saldo();
+			}
+		}
+		
+		function fazer_saque(){
+			var saque = parseFloat(prompt('Qual o valor desejado para o saque?'));
+			if (isNaN(saque) || saque === '') {
+				alert('informe um número:');
+				fazer_saque();
+			}
+			else if (saque <= 0){
+				alert("Näo AU TO RI ZA DA ");
+				inicio();
+		}
+			else if (saque > saldo){
+				alert("Ta querendo passar golpe o safado? coloca valor q vc tenha!!!");
+				comeco();
+		}
+			else {
+				saldo -= saque;
+				
+				ver_saldo();
+			}
+		}
+		function ver_extrato(){
+			
+	        alert(" -R$4350 gastos com roupinhas de boneco de jogo ");
+            alert(" -R$350 gastos com corzinha pra arma ");
+            alert(" -R$50  com mouse gamer que brilha ");
+            alert(" -R$100 gastos com Uber, compra uma bike que é melhor");
+				comeco();
+			}
+		function transferência(){
+			var transf = parseInt(prompt('Coloca o número da conta do sujeito ai'));
+			if (Number.isInteger(Number(transf))){
+			transferência2();
+			}
+			else{
+				alert('Não foi, tenta dnv compatriota');
+				comeco();
+			}	
+		}
+		function transferência2(){
+			var transf = parseInt(prompt ('Insira o valor que deseja transferir'));
+			if (transf <= 0){
+				alert('O meu compatriota coloca um valor direito ai ');
+				comeco();
+			}
+			else if (transf > saldo){
+				alert("O meu parceiro querendo manda um valor q nem tem ??? pede pro agiota");
+				comeco();
+		}
+			else if (Number.isInteger(Number(transf))){
+				alert('A pessoa q recebeu ta feliz agr ');
+				saldo -= transf;
+				ver_saldo();
+		}
+			else{
+				alert('NÃO VOU ATOURIZAR NÃO ');
+				comeco();
+			}	
+		}
+
+		function sair() {
+			var yep = confirm('Você deseja sair?');
+			if (yep) {
+				alert('Agradecemos por utilizar os serviços do nosso banco ' + nome + '');
+			} else {
+				comeco();
+			}
+		}
+		comeco();
+
+        function concelho_1() {
+            document.write("Uma vez um homem de sabios conhecimentos recitou uma frase 'A melhor coisa que voce pode fazer com seu dinheiro é näo gasta-lo' E ESTE HOMEM NÄO ERA NADA MAIS NADA MENOS QUE JULIUS O PORTADOR DA VERDADE SOBRE O DINHERO" + '</br>');
+        }
+        function erro() {
+			alert('COLOCA UM DOS NUMEROS AI DE 1 a 7');
+			comeco();
+		}
+        //quebrei tanto a minha cabeça pra conseguir fazer isso q vou precisar dormir mais 
+	</script>
+</head>
+<body>
+    <p>tlg satisfação total meu parceiro, utilizando nosso banco ae tmj!!!</p>
+    <img src="julius.png" width="320" height="200" >
+    <p>Sempre gaste o dinheiro dos outros e näo o seu, essa é a primeira regra do dinheiro!!!</p>
+</body>
+
+</html>
